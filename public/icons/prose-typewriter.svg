@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none" stroke="#102A43" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+  <title>Проза — печатная машинка</title>
+  <rect x="20" y="45" width="88" height="51" rx="8"/>
+<path d="M28 45 37 30h54l9 15"/>
+<path d="M35 59h58v19H35z" stroke="#8FD3FF"/>
+<path d="M45 89h38"/>
+<path d="M52 38h24"/>
+<path d="M29 104h70"/>
+<circle cx="41" cy="87" r="2" fill="#8FD3FF" stroke="none"/><circle cx="51" cy="87" r="2" fill="#8FD3FF" stroke="none"/><circle cx="61" cy="87" r="2" fill="#8FD3FF" stroke="none"/><circle cx="71" cy="87" r="2" fill="#8FD3FF" stroke="none"/><circle cx="81" cy="87" r="2" fill="#8FD3FF" stroke="none"/>
+</svg>

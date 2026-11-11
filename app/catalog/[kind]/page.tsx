@@ -7,13 +7,12 @@ export const instant = false;
 export default async function CategoryPage({ params }: { params: Promise<{ kind: string }> }) {
   const { kind } = await params
   
-  // Получаем произведения нужного типа
   const works = await client.fetch(`*[_type == "work" && kind == $kind] | order(publishedAt desc){
-    _id, title, slug, image, "author": author->name
+    _id, title, slug, editorNote, body, "author": author->name
   }`, { kind })
 
   const titles: Record<string, string> = {
-    poetry: 'Поэзия', prose: 'Проза', photo: 'Фотографии', painting: 'Картины'
+    poetry: 'Поэзия', prose: 'Проза', photo: 'Фотографии', painting: 'Живопись'
   }
 
   return (
@@ -25,20 +24,22 @@ export default async function CategoryPage({ params }: { params: Promise<{ kind:
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {works.map((w: any) => (
-            <Link key={w._id} href={`/work/${w.slug.current}`} className="group block">
-              {/* Если есть картинка, показываем её */}
-              {w.image && (
-                <div className="aspect-[4/3] relative bg-pine-light rounded-lg overflow-hidden mb-4">
-                  <Image 
-                    src={urlFor(w.image).width(600).height(450).url()} 
-                    alt={w.title} 
-                    fill 
-                    className="object-cover group-hover:scale-105 transition-transform duration-500" 
-                  />
+            <Link key={w._id} href={`/work/${w.slug.current}`} className="group flex flex-col bg-pine-light/30 p-6 rounded-xl border border-pine/5 hover:border-sun/50 transition-colors">
+              <h2 className="text-2xl font-bold text-pine group-hover:text-sun transition-colors mb-3 line-clamp-2">{w.title}</h2>
+              
+              {/* Логика вывода: Комментарий редактора > Текст произведения */}
+              {w.editorNote ? (
+                <div className="text-sm text-pine/80 italic mb-4 line-clamp-3 border-l-2 border-sun pl-3">
+                  <span className="text-xs uppercase tracking-widest text-sun font-bold block not-italic mb-1">Комментарий редактора</span>
+                  «{w.editorNote}»
                 </div>
-              )}
-              <h2 className="text-xl font-bold text-pine group-hover:text-wave transition-colors mb-2">{w.title}</h2>
-              <p className="text-sm text-pine/60">{w.author}</p>
+              ) : w.body ? (
+                <div className="text-pine/70 italic mb-4 line-clamp-3">
+                  {w.body.find((block: any) => block._type === 'block')?.children?.map((c: any) => c.text).join(' ') || ''}
+                </div>
+              ) : null}
+
+              <div className="mt-auto pt-4 text-sm text-pine/60">{w.author}</div>
             </Link>
           ))}
         </div>

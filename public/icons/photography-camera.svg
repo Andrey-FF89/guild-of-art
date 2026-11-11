@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none" stroke="#102A43" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+  <title>Фото — фотоаппарат</title>
+  <path d="M22 45h20l7-11h30l7 11h20v53H22z"/>
+<circle cx="64" cy="70" r="20"/>
+<circle cx="64" cy="70" r="10" stroke="#8FD3FF"/>
+<circle cx="94" cy="57" r="4" fill="#8FD3FF" stroke="none"/>
+<path d="M48 46h32" stroke="#8FD3FF"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none" stroke="#102A43" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+  <title>Журнал — лист</title>
+  <path d="M29 18h70v92H29z"/>
+<path d="M77 18v27h22"/>
+<path d="M42 58h25" stroke="#8FD3FF"/><path d="M42 69h44" stroke="#8FD3FF"/><path d="M42 80h44" stroke="#8FD3FF"/><path d="M42 91h30" stroke="#8FD3FF"/>
+<rect x="76" y="55" width="10" height="10" rx="1" fill="#8FD3FF" stroke="none"/>
+<path d="M77 18 99 40" stroke="#8FD3FF"/>
+</svg>

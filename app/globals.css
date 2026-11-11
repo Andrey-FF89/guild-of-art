@@ -3,10 +3,10 @@
 
 @theme {
   /* Наши акцентные цвета */
-  --color-wave: #2A7B88; /* Морская волна */
-  --color-sun: #E8A317;  /* Полуденное солнце */
-  --color-pine: #2F3E31; /* Сосновые доски */
-  --color-pine-light: #F4F1EA; /* Светлый фон для карточек */
+  --color-pine: #345668;      /* Глубокий синий (основной текст, темный фон) */
+  --color-pine-light: #D8BB9B; /* Песочный (светлый фон) */
+  --color-wave: #9CB6BE;      /* Светло-голубой (акценты) */
+  --color-sun: #F1BB60;       /* Золотой (кнопки, выделения) */
   
   /* Шрифты */
   --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
@@ -17,4 +17,30 @@ body {
   color: var(--color-pine);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+/* Стили для текста (Поэзия и Проза) */
+.prose {
+  /* Базовый размер и межстрочный интервал */
+  line-height: 1.6; 
+}
+
+/* Убираем огромные отступы между абзацами (строфами) */
+.prose p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Если строка пустая (просто нажат Enter), делаем отступ чуть больше */
+.prose p:empty::after {
+  content: "\00a0";
+  display: block;
+  height: 1em; /* Фиксированная высота пустой строки */
+}
+
+/* Если внутри текста есть перенос строки (Shift+Enter), делаем его аккуратным */
+.prose br {
+  display: block;
+  content: "";
+  margin-top: 0.2em; 
 }

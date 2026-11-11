@@ -16,7 +16,7 @@ export const work = defineType({
           { title: 'Поэзия', value: 'poetry' },
           { title: 'Проза', value: 'prose' },
           { title: 'Фотография', value: 'photo' },
-          { title: 'Картина', value: 'painting' },
+          { title: 'Живопись', value: 'painting' },
         ],
       },
       validation: (r) => r.required(),
@@ -35,7 +35,18 @@ export const work = defineType({
       to: [{ type: 'editor' }],
     }),
     defineField({ name: 'body', title: 'Текст (для поэзии/прозы)', type: 'array', of: [{ type: 'block' }] }),
-    defineField({ name: 'image', title: 'Изображение (для картин/фото)', type: 'image', options: { hotspot: true } }),
+    defineField({ 
+      name: 'images', 
+      title: 'Изображения (для живописи/фото)', 
+      type: 'array', 
+      of: [{ type: 'image', options: { hotspot: true } }] 
+    }),
     defineField({ name: 'publishedAt', title: 'Дата публикации', type: 'datetime', initialValue: () => new Date().toISOString() }),
+    defineField({ 
+      name: 'editorNote', 
+      title: 'Комментарий редактора', 
+      type: 'text',
+      description: 'Короткая заметка или рецензия от редакции. Появится на странице произведения.' 
+    }),
   ],
 })
